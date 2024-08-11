@@ -1,4 +1,16 @@
 <%- include("partials/header.ejs") %>
+    <form action="/addPost" method="post" class="container">
+        <div class="mb-3">
+            <label for="exampleFormControlInput1 " class="form-label text-light ">Pick a Suitable Title</label>
+            <input name="user-title" class="form-control" id="exampleFormControlInput1" placeholder="An eye catching title">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label text-light">Provide Some Content</label>
+            <textarea name="user-text" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+        <div class="card-actions nav nav-pills" >
+            <a type="submit" class="nav-link yk-buttons button" aria-current="page">Submit</a>
+        </div>
+    </form>
 
-
-<%- include("partials/footer.ejs") %>
+    <%- include("partials/footer.ejs") %>

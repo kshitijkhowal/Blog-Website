@@ -1,6 +1,33 @@
 <%- include("partials/header.ejs") %>
+    <% if(locals.AllPosts){ %>
+        <div class="container">
+            <div class="row">
+                <div class="col-9">
+                    <% AllPosts.forEach(element=> { %>
+                        <div class="card yk-cards">
+                            <div class="card-header">
+                                <div class="card-title"><%= element.title %></div>
+                                <div class="card-date">August 11, 2024</div>
+                            </div>
+                            <div class="card-text">
+                                <%= element.text %>
+                            </div>
+                            <div class="card-actions">
+                                <button class="update" value="<%= element.id %>">Update</button>
+                                <button class="delete" value="<%= element.id %>">Delete</button>
+                            </div>
+                        </div>
+                        <% }); %>
+                </div>
+                <div class="col-3">
+                    <div class="card_2 yk-cards">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% } %>
 
 
 
-
-<%- include("partials/footer.ejs") %>
+            <%- include("partials/footer.ejs") %>
