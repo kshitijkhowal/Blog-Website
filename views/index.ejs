@@ -13,8 +13,8 @@
                                 <%= element.text %>
                             </div>
                             <div class="card-actions">
-                                <button class="update" value="<%= element.id %>">Update</button>
-                                <button class="delete" value="<%= element.id %>">Delete</button>
+                                <a href="/update/<%= element.id %>"><button class="update" >Update</button></a>
+                                <a href="/delete/<%= element.id %>"><button class="delete" >Delete</button></a>
                             </div>
                         </div>
                         <% }); %>

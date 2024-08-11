@@ -63,11 +63,21 @@ app.post("/addPost",async(req,res)=>{
     AllPosts.unshift(newPost);
     
     // console.log(newPost);
-    res.render("index.ejs",{
-        AllPosts:AllPosts,
-    });
+    res.redirect("/");
+    
+})
+
+app.get("/delete/:id",async(req,res)=>{
+    const id=req.params.id;
+    // console.log(id);
+    const index = AllPosts.findIndex((p) => p.id === parseInt(id));
+    AllPosts.splice(index,1);
+    res.redirect("/");
 
 })
+
+
+
 
 
 app.listen(port,()=>{
