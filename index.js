@@ -75,6 +75,14 @@ app.get("/delete/:id",async(req,res)=>{
     res.redirect("/");
 
 })
+app.get("/update/:id",async(req,res)=>{
+    const id=req.params.id;
+    // console.log(id);
+    const index = AllPosts.findIndex((p) => p.id === parseInt(id));
+    
+    res.render("modify.ejs")
+
+})
 
 
 
