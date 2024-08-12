@@ -5,7 +5,7 @@ const app=express();
 const port=3000;
 
 app.use(express.static('public'));
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.urlencoded({ extended: true }));
 
 let AllPosts=[];
 let lastUsedId=2;
@@ -48,7 +48,7 @@ function formatDate() {
     const minutes = date.getMinutes().toString().padStart(2, '0');
 
     const formattedTime = `${hours}:${minutes}`;
-
+    
     return `${formattedDate} - ${formattedTime}`;
 }
 
@@ -73,17 +73,31 @@ app.get("/delete/:id",async(req,res)=>{
     const index = AllPosts.findIndex((p) => p.id === parseInt(id));
     AllPosts.splice(index,1);
     res.redirect("/");
-
+    
 })
+
 app.get("/update/:id",async(req,res)=>{
     const id=req.params.id;
     // console.log(id);
     const index = AllPosts.findIndex((p) => p.id === parseInt(id));
+    // console.log(AllPosts[index]);
     
-    res.render("modify.ejs")
-
+    res.render("editPost.ejs",{currPost:AllPosts[index]});
+    
 })
 
+app.post("/update/:id",async(req,res)=>{
+    console.log("req.body.title");
+    const id=req.params.id;
+    const index = AllPosts.findIndex((p) => p.id === parseInt(id));
+
+    AllPosts[index].title=req.body["user-title"] || AllPosts[index].title;
+    AllPosts[index].text=req.body["user-text"] || AllPosts[index].text;
+
+    res.redirect("/");
+
+
+})
 
 
 

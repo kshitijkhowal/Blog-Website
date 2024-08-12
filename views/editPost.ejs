@@ -1,16 +1,16 @@
 <%- include("partials/header.ejs") %>
-<form action="/addPost" method="post" class="container">
+<form action="/update/<%= currPost.id %>" method="post" class="container">
         <a class="my-3 d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
             <span class="heading my-3">Edit your Post</span>
         </a>
         <div class="mb-3">
             <label for="exampleFormControlInput1 " class="form-label text-light ">Pick a Suitable Title</label>
             <input name="user-title" class="form-control" id="exampleFormControlInput1"
-                placeholder="An eye catching title">
+                placeholder="An eye catching title" value="<%= currPost.title %>">
         </div>
         <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label text-light">Provide Some Content</label>
-            <textarea name="user-text" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <label for="exampleFormControlTextarea1" class="form-label text-light" >Provide Some Content</label>
+            <textarea name="user-text" class="form-control" id="exampleFormControlTextarea1" rows="3" ><%= currPost.text %></textarea>
         </div>
         <div class="card-actions nav nav-pills">
             <input type="submit" class="nav-link yk-buttons button" aria-current="page"></input>
